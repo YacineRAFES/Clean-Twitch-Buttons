@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Clean Twitch Buttons",
+  "version": "1.0",
+
+  "description": "Remove unnecessary buttons on Twitch",
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.twitch.tv/*",
+        "*://m.twitch.tv/*",
+        "*://player.twitch.tv/*"
+        ],
+      "js": ["twitchbuttons.js"]
+    }
+  ]
+}
