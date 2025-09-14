@@ -1,0 +1,29 @@
+html, body {
+    width: 200px;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    margin: 5px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.deactiver {
+    background-color: #5d6360;
+}
+
+.activer {
+    background-color: #026d37;
+}
+
+button:hover {
+    background-color: #815555;
+}

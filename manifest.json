@@ -5,6 +5,17 @@
 
   "description": "Remove unnecessary buttons on Twitch",
 
+  "icons": {
+    "48": "src/icons/icons-48.png",
+    "96": "src/icons/icons-96.png"
+  },
+
+  "browser_action": {
+    "default_icon": "src/icons/icons-48.png",
+    "default_title": "Clean Twitch Button",
+    "default_popup": "src/popup/interface.html"
+  },
+
   "content_scripts": [
     {
       "matches": [
@@ -12,7 +23,7 @@
         "*://m.twitch.tv/*",
         "*://player.twitch.tv/*"
         ],
-      "js": ["twitchbuttons.js"]
+      "js": ["src/content_scripts/twitchbuttons.js"]
     }
   ]
 }
