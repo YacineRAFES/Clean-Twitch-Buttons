@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Clean Twitch Buttons",
-  "version": "0.2",
+  "version": "0.2.1",
 
   "description": "Remove unnecessary buttons on Twitch",
 
@@ -11,7 +11,8 @@
   },
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "tabs"
   ],
 
   "browser_action": {
@@ -19,13 +20,15 @@
     "default_title": "Clean Twitch Button",
     "default_popup": "src/popup/interface.html"
   },
+  
+  "background": {
+    "scripts": ["src/background/background.js"]
+  },
 
   "content_scripts": [
     {
       "matches": [
-        "*://www.twitch.tv/*",
-        "*://m.twitch.tv/*",
-        "*://player.twitch.tv/*"
+        "*://www.twitch.tv/*"
         ],
       "js": ["src/content_scripts/twitchbuttons.js"]
     }

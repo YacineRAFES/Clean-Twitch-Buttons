@@ -22,9 +22,9 @@ buttons.forEach(btn => {
 });
 
 resetBtn.addEventListener("click", function () {
+    browser.runtime.sendMessage({ action: "resetOption" });
     buttons.forEach(btn => {
         btn.classList.remove("btn-success");
         btn.classList.add("btn-primary");
-        browser.runtime.sendMessage({ action: "resetOption" });
     });
 });

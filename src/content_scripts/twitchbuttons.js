@@ -1,8 +1,8 @@
 // Initialisation des options avec stockage local
 let options = {
-    bits: true,
-    subscribe: true,
-    giftsub: true
+    bits: false,
+    subscribe: false,
+    giftsub: false
 };
 
 // Charger les options depuis le stockage
@@ -12,9 +12,16 @@ browser.storage.local.get(["bits", "subscribe", "giftsub"]).then((result) => {
 });
 
 function applyOptions() {
-    if (options.bits) removeButtons('button[data-a-target="top-nav-get-bits-button"]');
-    if (options.subscribe) removeButtons('button[data-a-target="subscribe-button"]');
-    if (options.giftsub) removeButtons('button[data-a-target="gift-button"]');
+    toggleButtons('button[data-a-target="top-nav-get-bits-button"]', options.bits);
+    toggleButtons('button[data-a-target="subscribe-button"]', options.subscribe);
+    toggleButtons('button[data-a-target="gift-button"]', options.giftsub);
+}
+
+// Nouvelle fonction pour masquer/afficher
+function toggleButtons(btnSelector, hide) {
+    document.querySelectorAll(btnSelector).forEach(btn => {
+        btn.style.display = hide ? "none" : "";
+    });
 }
 
 // Écoute des messages du popup
@@ -24,21 +31,13 @@ browser.runtime.onMessage.addListener((message) => {
         browser.storage.local.set({ [message.option]: options[message.option] });
         applyOptions();
     } else if (message.action === "resetOption") {
-        options.bits = true;
-        options.subscribe = true;
-        options.giftsub = true;
+        options.bits = false;
+        options.subscribe = false;
+        options.giftsub = false;
         browser.storage.local.set(options);
         applyOptions();
     }
 });
-
-// Suppression des boutons
-function removeButtons(btnSelector) {
-    document.querySelectorAll(btnSelector).forEach(btn => {
-        btn.remove();
-        console.log("Button removed:", btnSelector);
-    });
-}
 
 // Observer pour les changements dynamiques
 const observer = new MutationObserver(applyOptions);
