@@ -9,7 +9,12 @@ Mis en place la suppression le bouton "Acheter des bits".
 
 ## VERSION 0.2
 
+Mis en place une fenetre popup
 
+![alt text](img/fenetre_popupVersion0dot2.png)
+
+# Problèmes connus
+- Les boutons sont supprimées sur la page mais les boutons de popup ne sont pas vert.
 
 ## License
 

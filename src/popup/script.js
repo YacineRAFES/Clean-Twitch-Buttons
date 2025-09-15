@@ -17,6 +17,7 @@ function toggleButton(btn) {
 buttons.forEach(btn => {
     btn.addEventListener("click", function () {
         toggleButton(btn);
+        browser.runtime.sendMessage({ action: "toggleOption", option: btn.id });
     });
 });
 
@@ -24,5 +25,6 @@ resetBtn.addEventListener("click", function () {
     buttons.forEach(btn => {
         btn.classList.remove("btn-success");
         btn.classList.add("btn-primary");
+        browser.runtime.sendMessage({ action: "resetOption" });
     });
 });
