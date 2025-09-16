@@ -13,8 +13,9 @@ Mis en place une fenetre popup
 
 ![alt text](img/fenetre_popupVersion0dot2.png)
 
-# Problèmes connus
-- Les boutons sont supprimées sur la page mais les boutons de popup ne sont pas vert.
+## VERSION 0.2.2
+
+Fix : Les boutons sont supprimées sur la page mais les boutons de popup ne sont pas vert.
 
 ## License
 
